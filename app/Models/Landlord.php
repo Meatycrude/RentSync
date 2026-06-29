@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Landlord extends Model
+{
+    use HasFactory, HasUuids;
+
+    protected $fillable = [
+        'user_id', 'business_name', 'national_id', 'verification_status',
+        'verified_at', 'subscription_plan_id', 'subscription_status',
+        'trial_ends_at', 'mpesa_paybill',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function subscriptionPlan()
+    {
+        return $this->belongsTo(SubscriptionPlan::class);
+    }
+}
