@@ -27,4 +27,13 @@ class Student extends Model
     {
         return $this->belongsTo(Institution::class);
     }
+    public function tags()
+    {
+    return $this->belongsToMany(TenantTag::class, 'tenant_tag_assignments', 'student_id', 'tag_id')
+        ->withPivot('assigned_at');
+    }
+    public function roommateProfile()
+    {
+    return $this->hasOne(RoommateProfile::class);
+    }
 }
