@@ -14,6 +14,7 @@ class UserFactory extends Factory
             'id' => (string) Str::uuid(),
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
+            'email_verified_at' => now(),
             'password' => Hash::make('password'),
             'role' => 'student',
             'is_active' => true,
@@ -27,9 +28,6 @@ class UserFactory extends Factory
         ]);
     }
 
-    /**
-     * Indicate that the model has two-factor authentication configured.
-     */
     public function withTwoFactor(): static
     {
         return $this->state(fn (array $attributes) => [
@@ -38,5 +36,4 @@ class UserFactory extends Factory
             'two_factor_confirmed_at' => now(),
         ]);
     }
-
 }
