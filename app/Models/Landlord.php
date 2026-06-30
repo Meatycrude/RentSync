@@ -25,4 +25,13 @@ class Landlord extends Model
     {
         return $this->belongsTo(SubscriptionPlan::class);
     }
+
+    public function tenantTags()
+    {
+        return $this->hasMany(TenantTag::class);
+    }
+    public function subscriptionPayments()
+    {
+    return $this->hasMany(LandlordSubscriptionPayment::class);
+    }
 }
