@@ -13,7 +13,7 @@ trait ProfileValidationRules
      *
      * @return array<string, array<int, ValidationRule|array<mixed>|string>>
      */
-    public function profileRules(?string $userId): array
+    public function profileRules(?string $userId=null): array
     {
         return [
             'name' => $this->nameRules(),
