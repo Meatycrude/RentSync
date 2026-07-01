@@ -16,4 +16,8 @@ class Agent extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function properties()
+    {
+    return $this->belongsToMany(Property::class, 'agent_properties');
+    }
 }
