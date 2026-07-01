@@ -18,4 +18,8 @@ class Institution extends Model
     {
         return $this->hasMany(Student::class);
     }
+    public function properties()
+    {
+    return $this->hasMany(Property::class);
+    }
 }
