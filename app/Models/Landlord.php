@@ -34,4 +34,20 @@ class Landlord extends Model
     {
     return $this->hasMany(LandlordSubscriptionPayment::class);
     }
+    public function properties()
+    {
+    return $this->hasMany(Property::class);
+    }
+    public function staff()
+    {
+    return $this->hasMany(Staff::class);
+    }
+    public function utilityBills()
+    {
+    return $this->hasMany(UtilityBill::class);
+    }
+    public function expenses()
+    {
+    return $this->hasMany(Expense::class);
+    }
 }
