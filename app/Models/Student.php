@@ -36,4 +36,25 @@ class Student extends Model
     {
     return $this->hasOne(RoommateProfile::class);
     }
+    public function favorites()
+    {
+    return $this->belongsToMany(Property::class, 'favorites');
+    }
+    public function bookingRequests()
+    {
+    return $this->hasMany(BookingRequest::class);
+    }
+    public function leases()
+    {
+    return $this->hasMany(Lease::class);
+    }
+
+    public function activeLease()
+    {
+        return $this->hasOne(Lease::class)->where('status', 'active');
+    }
+    public function reviews()
+    {
+    return $this->hasMany(Review::class);
+    }
 }
